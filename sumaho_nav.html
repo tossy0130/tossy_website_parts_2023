@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  
+
+    <title>Document</title>
+
+    <style>
+
+/* =============================================================*/
+/* =============== スマホ用　メニュー nav 開始 ================= */
+/* =============================================================*/
+.suma_nav {
+  position: relative;
+}
+
+.nav-toggle { position: relative;display: block;width: 30px;
+  height: 30px;cursor: pointer;padding: 5px;
+}
+
+.nav-toggle span {display: block;position: absolute;height: 2px;
+  width: 100%;background-color: #333;transition: all 0.3s ease-in-out;
+}
+
+.nav-toggle span:before {content: '';position: absolute;height: 2px;
+  width: 100%; background-color: #333; transition: all 0.3s ease-in-out;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.nav-toggle span:nth-child(2), .nav-toggle span:nth-child(3) {
+  top: 50%;
+  margin-top: -1px;
+}
+
+.nav-toggle span:nth-child(3) {
+  top: auto;
+  bottom: 0;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg);top: 50%;background-color: #333;
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg);bottom: 50%;background-color: #333;
+}
+
+/* === スマホメニュー 開始 === */
+.nav-menu {
+  position: absolute;top: 100%;left: 0;right: 0;z-index: 99;background-color: #fff;padding: 20px;
+  display: none;border: 1px solid #ccc;box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  height: 100vh;background: rgba(0, 0, 0, 0.78);
+}
+
+.nav-menu li {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.nav-menu li > a {
+    display: block;padding: 22px 0;text-align: center;
+    border-top: 1px dotted #555;color: #fff; text-decoration: none;
+}
+
+#suma_nav_yoyaku {
+    background-color: #826842;color: #fff;
+    width: 240px;margin: auto;
+}
+
+/* スマホ　nav SNS アイコン */
+#suma_facebook {display: inline-block !important;position: relative;left: 25%;}
+.fa-facebook-f {color:#826842;font-size: 26px;}
+
+#suma_instagram {display: inline-block !important;position: relative;left: 35%;}
+.fa-instagram {color:#826842;font-size: 26px;}
+
+#suma_line {display: inline-block !important;position: relative;left: 45%;}
+.fa-line {color:#826842;font-size: 26px;}
+
+/* =============================================================*/
+/* =============== スマホ用　メニュー nav 終了 ================= */
+
+
+
+    </style>
+
+
+</head>
+<body>
+
+<!--==================== スマホメニュー 開始 ====================-->
+<nav class="suma_nav">
+    <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="nav-menu">
+      
+        <li><a href="#">メニュー項目1</a></li>
+        <li><a href="#">メニュー項目2</a></li>
+        <li><a href="#">メニュー項目3</a></li>
+        <li><a href="#">メニュー項目4</a></li>
+        <li><a href="#">メニュー項目4</a></li>
+        <li><a href="#">メニュー項目4</a></li>
+        <li><a href="#">メニュー項目4</a></li>
+        <li><a href="#" id="suma_nav_yoyaku">ご予約はこちら</a></li>
+        <li>
+            <a href="#" id="suma_facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" id="suma_instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" id="suma_line"><i class="fa-brands fa-line"></i></i></a>
+        </li>
+    </ul>
+</nav>
+
+<!--==================== スマホメニュー 終了 ====================-->
+
+
+    <script>
+
+        $(document).ready(function(){
+
+            // === トグルボタンを押したら
+            $('.nav-toggle').click(function(){
+                $(this).toggleClass('active');
+                $('.nav-menu').slideToggle(450);
+            });
+
+            // ウィンドウサイズが変更された時の処理
+            $(window).resize(function () {
+                var width = $(window).width();
+                if (width > 768) {
+                    $('.nav-menu').removeAttr('style');
+                    $('.nav-toggle').removeClass('active');
+                }
+            });
+
+
+        });
+
+    </script>
+    
+</body>
+</html>
