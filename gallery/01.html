@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- 
+        <link href="css/style.css" rel="stylesheet">
+        -->
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            .image {
+                display: none;
+            }
+        </style>
+
+
+    </head>
+    <body>
+        
+        <button data-category="all">すべての画像</button>
+        <button data-category="nature">自然</button>
+        <button data-category="animals">動物</button>
+        <button data-category="food">食べ物</button>
+        
+
+        <div class="image nature">
+            <img src="./img/01.png" alt="自然の画像1">
+        </div>
+        <div class="image animals">
+            <img src="./img/02.png" alt="動物の画像1">
+        </div>
+        <div class="image food">
+            <img src="./img/03.png" alt="食べ物の画像1">
+        </div>
+        <div class="image nature">
+            <img src="./img/04.png" alt="自然の画像2">
+        </div>
+        <div class="image animals">
+            <img src="./img/05.png" alt="動物の画像2">
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+
+                $('.image').show();
+
+                $('button').click(function () {
+                    var category = $(this).data('category');
+
+                    if (category === 'all') {
+                        $('.image').show(); // すべての画像を表示
+                    } else {
+                        $('.image').hide(); // すべての画像を非表示
+                        $('.' + category).show(); // 選択したカテゴリの画像を表示
+                    }
+                });
+            });
+        </script>
+
+    
+    </body>
+</html>
